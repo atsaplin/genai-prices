@@ -1983,7 +1983,14 @@ export const data: Provider[] = [
         description:
           'Command is an instruction-following conversational model that performs language tasks with high quality, more reliably and with a longer context than our base generative models.',
         match: {
-          equals: 'command',
+          or: [
+            {
+              equals: 'command',
+            },
+            {
+              equals: 'command-nightly',
+            },
+          ],
         },
         prices: {
           input_mtok: 1,
@@ -2873,6 +2880,12 @@ export const data: Provider[] = [
             },
             {
               contains: 'gemini-2.0-flash-latest',
+            },
+            {
+              equals: 'gemini-2.0-flash-preview-image-generation',
+            },
+            {
+              equals: 'gemini-2-0-flash-preview-image-generation',
             },
           ],
         },
@@ -7759,6 +7772,9 @@ export const data: Provider[] = [
             },
             {
               equals: 'codestral-2501',
+            },
+            {
+              equals: 'codestral-2508',
             },
           ],
         },
@@ -16568,7 +16584,14 @@ export const data: Provider[] = [
         name: 'Sonar Pro',
         description: 'Note: Sonar Pro pricing includes Perplexity search pricing. See details here',
         match: {
-          equals: 'sonar-pro',
+          or: [
+            {
+              equals: 'sonar-pro',
+            },
+            {
+              equals: 'sonar-pro-search',
+            },
+          ],
         },
         prices: {
           input_mtok: 3,
