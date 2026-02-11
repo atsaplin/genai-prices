@@ -1153,7 +1153,7 @@ providers: list[Provider] = [
         models=[
             ModelInfo(
                 id='command',
-                match=ClauseEquals(equals='command'),
+                match=ClauseOr(or_=[ClauseEquals(equals='command'), ClauseEquals(equals='command-nightly')]),
                 name='Command',
                 description='Command is an instruction-following conversational model that performs language tasks with high quality, more reliably and with a longer context than our base generative models.',
                 prices=ModelPrice(input_mtok=Decimal('1'), output_mtok=Decimal('2')),
@@ -1659,6 +1659,8 @@ providers: list[Provider] = [
                         ClauseContains(contains='gemini-2.0-flash-exp'),
                         ClauseContains(contains='gemini-2.0-flash-thinking'),
                         ClauseContains(contains='gemini-2.0-flash-latest'),
+                        ClauseEquals(equals='gemini-2.0-flash-preview-image-generation'),
+                        ClauseEquals(equals='gemini-2-0-flash-preview-image-generation'),
                     ]
                 ),
                 name='gemini 2.0 flash',
@@ -4475,7 +4477,13 @@ providers: list[Provider] = [
         models=[
             ModelInfo(
                 id='codestral',
-                match=ClauseOr(or_=[ClauseEquals(equals='codestral-latest'), ClauseEquals(equals='codestral-2501')]),
+                match=ClauseOr(
+                    or_=[
+                        ClauseEquals(equals='codestral-latest'),
+                        ClauseEquals(equals='codestral-2501'),
+                        ClauseEquals(equals='codestral-2508'),
+                    ]
+                ),
                 name='Codestral',
                 description="Mistral's cutting-edge language model for coding. Codestral specializes in low-latency, high-frequency tasks such as fill-in-the-middle (FIM), code correction and test generation.",
                 prices=ModelPrice(input_mtok=Decimal('0.3'), output_mtok=Decimal('0.9')),
@@ -5266,10 +5274,14 @@ providers: list[Provider] = [
                         ClauseEquals(equals='gpt-5.1'),
                         ClauseEquals(equals='gpt-5.1-2025-11-13'),
                         ClauseEquals(equals='gpt-5.1-codex'),
+                        ClauseEquals(equals='gpt-5.1-codex-max'),
+                        ClauseEquals(equals='gpt-5.1-chat'),
                         ClauseEquals(equals='gpt-5.1-chat-latest'),
                         ClauseEquals(equals='gpt-5-1'),
                         ClauseEquals(equals='gpt-5-1-2025-11-13'),
                         ClauseEquals(equals='gpt-5-1-codex'),
+                        ClauseEquals(equals='gpt-5-1-codex-max'),
+                        ClauseEquals(equals='gpt-5-1-chat'),
                         ClauseEquals(equals='gpt-5-1-chat-latest'),
                     ]
                 ),
@@ -5304,6 +5316,9 @@ providers: list[Provider] = [
                         ClauseEquals(equals='gpt-5.2-2025-12-11'),
                         ClauseEquals(equals='gpt-5-2'),
                         ClauseEquals(equals='gpt-5-2-2025-12-11'),
+                        ClauseEquals(equals='gpt-5.2-chat'),
+                        ClauseEquals(equals='gpt-5.2-chat-latest'),
+                        ClauseEquals(equals='gpt-5-2-chat'),
                         ClauseEquals(equals='gpt-5-2-chat-latest'),
                         ClauseEquals(equals='gpt-5.2-codex'),
                         ClauseEquals(equals='gpt-5-2-codex'),
@@ -9335,7 +9350,7 @@ providers: list[Provider] = [
             ),
             ModelInfo(
                 id='sonar-pro',
-                match=ClauseEquals(equals='sonar-pro'),
+                match=ClauseOr(or_=[ClauseEquals(equals='sonar-pro'), ClauseEquals(equals='sonar-pro-search')]),
                 name='Sonar Pro',
                 description='Note: Sonar Pro pricing includes Perplexity search pricing. See details here',
                 prices=ModelPrice(input_mtok=Decimal('3'), output_mtok=Decimal('15'), requests_kcount=Decimal('14')),

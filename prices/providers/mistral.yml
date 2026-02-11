@@ -28,6 +28,7 @@ models:
       or:
         - equals: codestral-latest
         - equals: codestral-2501
+        - equals: codestral-2508
     prices_checked: 2025-07-04
     prices:
       input_mtok: 0.3

@@ -33,7 +33,9 @@ models:
       Command is an instruction-following conversational model that performs language tasks with high quality, more reliably
       and with a longer context than our base generative models.
     match:
-      equals: command
+      or:
+        - equals: command
+        - equals: command-nightly
     prices:
       input_mtok: 1
       output_mtok: 2
@@ -99,7 +101,8 @@ models:
   - id: embed-v4.0
     name: Embed v4.0
     description: >-
-      Embed v4.0 is a state-of-the-art embedding model designed for precise retrieval across noisy, multilingual, and multimodal data.
+      Embed v4.0 is a state-of-the-art embedding model designed for precise retrieval across noisy, multilingual, and multimodal
+      data.
     match:
       equals: embed-v4.0
     context_window: 128000
