@@ -297,6 +297,8 @@ models:
         - contains: gemini-2.0-flash-exp
         - contains: gemini-2.0-flash-thinking
         - contains: gemini-2.0-flash-latest
+        - equals: gemini-2.0-flash-preview-image-generation
+        - equals: gemini-2-0-flash-preview-image-generation
     context_window: 1000000
     prices_checked: 2025-07-04
     prices:
@@ -440,7 +442,8 @@ models:
         - starts_with: gemini-3-flash-preview-
     context_window: 1000000
     prices_checked: 2025-12-19
-    price_comments: See https://ai.google.dev/gemini-api/docs/pricing. Standard pricing shown; Batch API offers 50% discount on input/output.
+    price_comments: See https://ai.google.dev/gemini-api/docs/pricing. Standard pricing shown; Batch API offers 50%
+      discount on input/output.
     prices:
       input_mtok: 0.5
       input_audio_mtok: 1
@@ -459,15 +462,18 @@ models:
         - equals: gemini-3-pro-image-preview
     context_window: 1000000
     prices_checked: 2025-12-19
-    price_comments: See https://ai.google.dev/gemini-api/docs/pricing#gemini-3-pro-image. Image output is priced at
-      $120 per 1M tokens, with each 1K/2K image = 1120 tokens = $0.134/image and each 4K image = 2000 tokens = $0.24/image.
+    price_comments:
+      See https://ai.google.dev/gemini-api/docs/pricing#gemini-3-pro-image. Image output is priced at $120
+      per 1M tokens, with each 1K/2K image = 1120 tokens = $0.134/image and each 4K image = 2000 tokens = $0.24/image.
     prices:
       input_mtok: 2
       output_mtok: 120
 
   - id: gemini-3-pro-preview
     name: Gemini 3 Pro Preview
-    description: The best model in the world for multimodal understanding, and our most powerful agentic and vibe-coding model yet.
+    description:
+      The best model in the world for multimodal understanding, and our most powerful agentic and vibe-coding
+      model yet.
     match:
       or:
         - starts_with: gemini-3-pro-preview
